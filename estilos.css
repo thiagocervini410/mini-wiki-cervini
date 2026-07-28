@@ -1,0 +1,47 @@
+.contenedor{
+     display:grid;
+    gap:15px;
+
+    grid-template-columns: 170px 1fr;
+    grid-template-rows: auto 1fr auto;
+
+    grid-template-areas:
+        "titulo titulo"
+        "indice contenido"
+        "referencias referencias";
+}
+.titulo{
+    grid-area: titulo;
+    background:#feffff;
+    border:1px solid black;
+    padding:20px;
+
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+}
+.indice{
+grid-area: indice;
+    background:#eee1f3;
+    border:2px solid black;
+    padding:10px;
+}
+.contenido{
+    grid-area: contenido;
+    background:white;
+    border:2px solid black;
+    padding:20px;
+
+}
+
+.referencias{
+    grid-area: referencias;
+    background:#f5f4f1;
+    border:2px solid black;
+    padding:10px;
+}
+
+.referencias a{
+    display:block;
+    margin-top:8px;
+}

@@ -1,44 +1,71 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Máquina de Turing</title>
+    <title>Máquina de Turing</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
 
 <body>
+    <div class="contenedor">
+        <header class="titulo">
+        <h1>Máquina de Turing</h1>
 
-<h1>Máquina de Turing</h1>
+        <img src="img/maquina_img2.png" width="300">
+        </header>
+        <nav class="indice">
+            <h2>Índice</h2>
+            <ul>
+                <li><a href="#definicion">¿Qué es?</a></li>
+                <li><a href="#funcionamiento">Funcionamiento</a></li>
+                <li><a href="#importancia">Importancia</a></li>
+                <li><a href="#actualidad">Uso actual</a></li>
+            </ul>
+        </nav>
+        <main class="contenido">
+            <h2 id="definicion">¿Qué es?</h2>
+            <p>Una máquina de Turing es un dispositivo que manipula símbolos sobre una tira de cinta de acuerdo con una
+                tabla de reglas. A pesar de su simplicidad, una máquina de Turing puede ser adaptada para simular la
+                lógica de cualquier algoritmo de computador y es particularmente útil en la explicación de las funciones
+                de una CPU dentro de un computador.</p>
 
-<img src="img/maquina_img2.png" width="300">
+            <h2 id="funcionamiento">Funcionamiento</h2>
+            <p>La máquina de Turing consta de un cabezal lector/escritor y una cinta infinita en la que el cabezal lee
+                el contenido, borra el contenido anterior y escribe un nuevo valor.</p>
+            <p>La memoria es la cinta de la máquina que se divide en espacios de trabajo denominados celdas, donde se
+                pueden escribir y leer símbolos. Inicialmente todas las celdas contienen un símbolo especial denominado
+                «blanco». Las instrucciones que determinan el funcionamiento de la máquina tienen la forma, «si estamos
+                en el estado x leyendo la posición y, donde hay escrito el símbolo z, entonces este símbolo debe ser
+                reemplazado por este otro símbolo, y pasar a leer la celda siguiente, bien a la izquierda o bien a la
+                derecha».</p>
+            <p>La máquina de Turing puede considerarse como un autómata capaz de reconocer lenguajes formales. En ese
+                sentido, es capaz de reconocer los lenguajes recursivamente enumerables, de acuerdo a la jerarquía de
+                Chomsky. Su potencia es, por tanto, superior a otros tipos de autómatas, como el autómata finito, o el
+                autómata con pila, o igual a otros modelos con la misma potencia computacional.</p>
 
-<h2>Índice</h2>
-<ul>
-<li><a href="#definicion">¿Qué es?</a></li>
-<li><a href="#funcionamiento">Funcionamiento</a></li>
-<li><a href="#importancia">Importancia</a></li>
-<li><a href="#actualidad">Uso actual</a></li>
-</ul>
-<h2 id="definicion">¿Qué es?</h2>
-<p>Una máquina de Turing es un dispositivo que manipula símbolos sobre una tira de cinta de acuerdo con una tabla de reglas. A pesar de su simplicidad, una máquina de Turing puede ser adaptada para simular la lógica de cualquier algoritmo de computador y es particularmente útil en la explicación de las funciones de una CPU dentro de un computador.</p>
+            <h2 id="importancia">importancia</h2>
+            <p>Turing ideó un modelo formal de computador, la máquina de Turing, y demostró que existían problemas que
+                una máquina no podía resolver. Con este aparato extremadamente sencillo es posible realizar cualquier
+                cómputo que un computador digital sea capaz de realizar.</p>
 
-<h2 id="funcionamiento">Funcionamiento</h2>
-<p>La máquina de Turing consta de un cabezal lector/escritor y una cinta infinita en la que el cabezal lee el contenido, borra el contenido anterior y escribe un nuevo valor.</p>
-<p>La memoria es la cinta de la máquina que se divide en espacios de trabajo denominados celdas, donde se pueden escribir y leer símbolos. Inicialmente todas las celdas contienen un símbolo especial denominado «blanco». Las instrucciones que determinan el funcionamiento de la máquina tienen la forma, «si estamos en el estado x leyendo la posición y, donde hay escrito el símbolo z, entonces este símbolo debe ser reemplazado por este otro símbolo, y pasar a leer la celda siguiente, bien a la izquierda o bien a la derecha».</p>
-<p>La máquina de Turing puede considerarse como un autómata capaz de reconocer lenguajes formales. En ese sentido, es capaz de reconocer los lenguajes recursivamente enumerables, de acuerdo a la jerarquía de Chomsky. Su potencia es, por tanto, superior a otros tipos de autómatas, como el autómata finito, o el autómata con pila, o igual a otros modelos con la misma potencia computacional.</p>
-
-<h2 id="importancia">importancia</h2>
-<p>Turing ideó un modelo formal de computador, la máquina de Turing, y demostró que existían problemas que una máquina no podía resolver. Con este aparato extremadamente sencillo es posible realizar cualquier cómputo que un computador digital sea capaz de realizar.</p>
-
-<h2 id="actualidad">Uso actual</h2>
-<p>La Máquina de Turing es un modelo matemático abstracto, no un dispositivo físico. Su uso actual no es práctico para el cálculo cotidiano, pero es fundamental como fundamento teórico y herramienta de análisis. Prácticamente todas las computadoras y lenguajes de programación modernos se basan en este principio.</p>
-<p>sus usos y aplicaciones hoy en dia son:</p>
-<li>Límites de la computación</li>
-<li>Complejidad computacional</li>
-<li>Diseño de lenguajes de programación</li>
-<li>Criptografía y Ciberseguridad</li>
-
-<h2>Referencias</h2>
-<a href="index.html">Alan Turing</a><br>
-<a href="tema3.html">Test de Turing</a><br>
-<a href="https://es.wikipedia.org/wiki/Máquina_de_Turing">Articulo original</a>
+            <h2 id="actualidad">Uso actual</h2>
+            <p>La Máquina de Turing es un modelo matemático abstracto, no un dispositivo físico. Su uso actual no es
+                práctico para el cálculo cotidiano, pero es fundamental como fundamento teórico y herramienta de
+                análisis. Prácticamente todas las computadoras y lenguajes de programación modernos se basan en este
+                principio.</p>
+            <p>sus usos y aplicaciones hoy en dia son:</p>
+            <li>Límites de la computación</li>
+            <li>Complejidad computacional</li>
+            <li>Diseño de lenguajes de programación</li>
+            <li>Criptografía y Ciberseguridad</li>
+        </main>
+        <footer class="referencias">
+            <h2>Referencias</h2>
+            <a href="index.html">Alan Turing</a><br>
+            <a href="tema3.html">Test de Turing</a><br>
+            <a href="https://es.wikipedia.org/wiki/Máquina_de_Turing">Articulo original</a>
+        </footer>
+    </div>
 </body>
+
 </html>
