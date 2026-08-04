@@ -1,8 +1,8 @@
 .contenedor{
      display:grid;
-    gap:15px;
+    gap:10px;
 
-    grid-template-columns: 170px 1fr;
+    grid-template-columns:  170px 3fr;
     grid-template-rows: auto 1fr auto;
 
     grid-template-areas:
@@ -13,8 +13,10 @@
 .titulo{
     grid-area: titulo;
     background:#feffff;
-    border:1px solid black;
+    border:2px solid black;
     padding:20px;
+    font-family: sans-serif;
+    color: #2e2d2e;
 
     display:flex;
     align-items:center;
@@ -28,20 +30,30 @@ grid-area: indice;
 }
 .contenido{
     grid-area: contenido;
-    background:white;
+    background:rgb(228, 228, 228);
     border:2px solid black;
-    padding:20px;
+    padding: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
 
 }
 
 .referencias{
     grid-area: referencias;
     background:#f5f4f1;
-    border:2px solid black;
+    border:2px solid black;     
     padding:10px;
-}
-
-.referencias a{
-    display:block;
+    font-size: 20px;
+    flex-direction: row;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
     margin-top:8px;
+}
+.a{
+    grid-area: contenido;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
 }
