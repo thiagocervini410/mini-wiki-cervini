@@ -21,12 +21,14 @@
     display:flex;
     align-items:center;
     justify-content: space-between;
+    border-radius: 15px;
 }
 .indice{
 grid-area: indice;
     background:#eee1f3;
     border:2px solid black;
     padding:10px;
+    border-radius: 15px;
 }
 .contenido{
     grid-area: contenido;
@@ -35,6 +37,7 @@ grid-area: indice;
     padding: 20px;
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
+    border-radius: 15px;
 
 }
 
@@ -49,6 +52,7 @@ grid-area: indice;
     align-items: center;
     justify-content: space-between;
     margin-top:8px;
+    border-radius: 15px;
 }
 .a{
     grid-area: contenido;
