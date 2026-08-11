@@ -1,8 +1,16 @@
+body {
+    font-family: sans-serif;
+    background: #ececec;
+    color: #2f2f2f;
+    margin: 0;
+    padding: 20px;
+}
+
 .contenedor{
      display:grid;
     gap:10px;
-
-    grid-template-columns:  170px 3fr;
+background:#272727;
+    grid-template-columns:  200px 3fr;
     grid-template-rows: auto 1fr auto;
 
     grid-template-areas:
@@ -12,10 +20,9 @@
 }
 .titulo{
     grid-area: titulo;
-    background:#feffff;
+    background:#d6d6d6;
     border:2px solid black;
     padding:20px;
-    font-family: sans-serif;
     color: #2e2d2e;
 
     display:flex;
@@ -25,25 +32,32 @@
 }
 .indice{
 grid-area: indice;
-    background:#eee1f3;
+    background:#ecd5ff;
     border:2px solid black;
     padding:10px;
     border-radius: 15px;
 }
 .contenido{
     grid-area: contenido;
-    background:rgb(228, 228, 228);
+     background:#ffffff;
     border:2px solid black;
     padding: 20px;
-    font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
     border-radius: 15px;
 
 }
+.contenido h2 {
+    border-bottom: 1px solid #d0d0d0;
+    padding-bottom: 5px;
+}
+.contenido img {
+    max-width: 100%;
+    height: auto;
+}
 
 .referencias{
     grid-area: referencias;
-    background:#f5f4f1;
+     background:#ecd5ff;
     border:2px solid black;     
     padding:10px;
     font-size: 20px;
@@ -54,7 +68,7 @@ grid-area: indice;
     margin-top:8px;
     border-radius: 15px;
 }
-.a{
+.encabezado{
     grid-area: contenido;
     display: flex;
     align-items: center;
