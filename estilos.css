@@ -6,70 +6,79 @@ body {
     padding: 20px;
 }
 
-.contenedor{
-     display:grid;
-    gap:10px;
-background:#272727;
-    grid-template-columns:  200px 3fr;
+/* 
+   Se quita el background oscuro (#272727) del contenedor 
+   para solucionar el borde blanco/rectángulo oscuro confuso.
+*/
+.contenedor {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 200px 3fr;
     grid-template-rows: auto 1fr auto;
-
     grid-template-areas:
-        "titulo titulo"
-        "indice contenido"
-        "referencias referencias";
+        "header header"
+        "nav    main"
+        "footer footer";
 }
-.titulo{
-    grid-area: titulo;
-    background:#d6d6d6;
-    border:2px solid black;
-    padding:20px;
-    color: #2e2d2e;
 
-    display:flex;
-    align-items:center;
+/* 
+   Se aplican las reglas directamente a las etiquetas semánticas 
+   HTML5 (header, nav, main, footer) en vez de usar clases CSS.
+*/
+header {
+    grid-area: header;
+    background: #d6d6d6;
+    border: 2px solid black;
+    padding: 20px;
+    color: #2e2d2e;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
     border-radius: 15px;
 }
-.indice{
-grid-area: indice;
-    background:#ecd5ff;
-    border:2px solid black;
-    padding:10px;
+
+nav {
+    grid-area: nav;
+    background: #ecd5ff;
+    border: 2px solid black;
+    padding: 10px;
     border-radius: 15px;
 }
-.contenido{
-    grid-area: contenido;
-     background:#ffffff;
-    border:2px solid black;
+
+main {
+    grid-area: main;
+    background: #ffffff;
+    border: 2px solid black;
     padding: 20px;
     font-size: 20px;
     border-radius: 15px;
-
 }
-.contenido h2 {
+
+main h2 {
     border-bottom: 1px solid #d0d0d0;
     padding-bottom: 5px;
 }
-.contenido img {
+
+main img {
     max-width: 100%;
     height: auto;
 }
 
-.referencias{
-    grid-area: referencias;
-     background:#ecd5ff;
-    border:2px solid black;     
-    padding:10px;
+footer {
+    grid-area: footer;
+    background: #ecd5ff;
+    border: 2px solid black;
+    padding: 10px;
     font-size: 20px;
+    display: flex;
     flex-direction: row;
-    display:flex;
     align-items: center;
     justify-content: space-between;
-    margin-top:8px;
+    margin-top: 8px;
     border-radius: 15px;
 }
-.encabezado{
-    grid-area: contenido;
+
+.encabezado {
     display: flex;
     align-items: center;
     justify-content: space-between;
