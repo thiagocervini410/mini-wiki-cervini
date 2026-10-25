@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Test de Turing</title>
     <link rel="stylesheet" href="estilos.css">
+    <script src="main.js" defer></script>
 </head>
 <body>
     <div class="contenedor">
@@ -12,34 +14,64 @@
             <img src="img/logo_wiki.png" width="125" alt="Logo Mini-Wiki">
         </header>
 
-        <nav>
+        <aside>
             <h2>Índice</h2>
-            <ul>
-                <li><a href="#definicion">¿Qué es?</a></li>
-                <li><a href="#objetivo">Objetivo</a></li>
-                <li><a href="#funcionamiento">Funcionamiento</a></li>
-                <li><a href="#impacto">Impacto actual</a></li>
-            </ul>
-        </nav>
+            <!-- lista vacía: la completa main.js al cargar la página -->
+            <ul id="indice"></ul>
+
+            <h2>Apariencia</h2>
+            <div class="panel-apariencia">
+                <button type="button" id="boton-modo">Modo oscuro</button>
+                <div class="botones-tamano">
+                    <button type="button" id="boton-pequeno">Pequeño</button>
+                    <button type="button" id="boton-estandar" class="activo">Estándar</button>
+                    <button type="button" id="boton-grande">Grande</button>
+                </div>
+            </div>
+        </aside>
 
         <main>
-            <div class="encabezado">
-                <h2 id="definicion">¿Qué es?</h2>
-                <img src="img/test_img3.png" width="125" alt="Test de Turing">
-            </div>
-            <p>El Test de Turing es una prueba propuesta por Alan Turing en 1950 con el objetivo de analizar la capacidad de una máquina para demostrar un comportamiento inteligente similar al de un ser humano. La idea fue presentada en su trabajo <em>Computing Machinery and Intelligence</em> y se convirtió en una de las propuestas más conocidas dentro del campo de la inteligencia artificial.</p>
+            <section>
+                <div class="encabezado">
+                    <h2 id="definicion">¿Qué es?</h2>
+                    <img src="img/test_img3.png" width="125" alt="Test de Turing">
+                </div>
+                <p>El Test de Turing es una prueba propuesta por Alan Turing en 1950 con el objetivo de analizar la capacidad de una máquina para demostrar un comportamiento inteligente similar al de un ser humano. La idea fue presentada en su trabajo <em>Computing Machinery and Intelligence</em> y se convirtió en una de las propuestas más conocidas dentro del campo de la inteligencia artificial.</p>
+            </section>
 
-            <h2 id="objetivo">Objetivo</h2>
-            <p>El objetivo principal del Test de Turing es determinar si una máquina puede comportarse de una manera tan parecida a una persona que resulte difícil distinguirla de un ser humano. Turing consideraba que una máquina podría ser considerada inteligente si lograba responder preguntas, mantener conversaciones y actuar de manera similar a una persona.</p>
-            <p>La prueba no busca analizar emociones o pensamientos reales, sino observar si las respuestas producidas por la máquina pueden parecer humanas. El objetivo era encontrar una forma práctica de evaluar la inteligencia artificial sin depender únicamente de definiciones teóricas.</p>
+            <section>
+                <h2 id="objetivo">Objetivo</h2>
+                <p>El objetivo principal del Test de Turing es determinar si una máquina puede comportarse de una manera tan parecida a una persona que resulte difícil distinguirla de un ser humano. Turing consideraba que una máquina podría ser considerada inteligente si lograba responder preguntas, mantener conversaciones y actuar de manera similar a una persona.</p>
+                <p>La prueba no busca analizar emociones o pensamientos reales, sino observar si las respuestas producidas por la máquina pueden parecer humanas. El objetivo era encontrar una forma práctica de evaluar la inteligencia artificial sin depender únicamente de definiciones teóricas.</p>
+            </section>
 
-            <h2 id="funcionamiento">Funcionamiento</h2>
-            <p>El funcionamiento del Test de Turing consiste en la participación de un evaluador que mantiene una conversación con dos participantes diferentes: una persona y una máquina. El evaluador no puede verlos directamente y solo recibe sus respuestas por medio de mensajes escritos o una interfaz de comunicación.</p>
-            <p>Durante la conversación, el evaluador realiza preguntas sobre distintos temas para intentar identificar quién es humano y quién es una máquina. Si después de un tiempo el evaluador no puede diferenciar correctamente a la máquina de la persona, se considera que la máquina logró superar la prueba.</p>
+            <section>
+                <h2 id="funcionamiento">Funcionamiento</h2>
+                <p>El funcionamiento del Test de Turing consiste en la participación de un evaluador que mantiene una conversación con dos participantes diferentes: una persona y una máquina. El evaluador no puede verlos directamente y solo recibe sus respuestas por medio de mensajes escritos o una interfaz de comunicación.</p>
+                <p>Durante la conversación, el evaluador realiza preguntas sobre distintos temas para intentar identificar quién es humano y quién es una máquina. Si después de un tiempo el evaluador no puede diferenciar correctamente a la máquina de la persona, se considera que la máquina logró superar la prueba.</p>
+            </section>
 
-            <h2 id="impacto">Impacto actual</h2>
-            <p>El Test de Turing tuvo un gran impacto en el desarrollo de la inteligencia artificial y la informática moderna. A partir de esta propuesta comenzaron a desarrollarse investigaciones relacionadas con el comportamiento inteligente de las máquinas y la posibilidad de crear sistemas capaces de aprender y tomar decisiones.</p>
-            <p>Con el paso de los años surgieron debates sobre si esta prueba realmente es suficiente para determinar la inteligencia de una máquina, ya que algunos especialistas consideran que imitar una conversación humana no necesariamente significa comprender o pensar. A pesar de eso, el Test de Turing continúa siendo una referencia histórica y uno de los conceptos más importantes dentro del estudio de la inteligencia artificial.</p>
+            <section>
+                <h2 id="impacto">Impacto actual</h2>
+                <p>El Test de Turing tuvo un gran impacto en el desarrollo de la inteligencia artificial y la informática moderna. A partir de esta propuesta comenzaron a desarrollarse investigaciones relacionadas con el comportamiento inteligente de las máquinas y la posibilidad de crear sistemas capaces de aprender y tomar decisiones.</p>
+                <p>Con el paso de los años surgieron debates sobre si esta prueba realmente es suficiente para determinar la inteligencia de una máquina, ya que algunos especialistas consideran que imitar una conversación humana no necesariamente significa comprender o pensar. A pesar de eso, el Test de Turing continúa siendo una referencia histórica y uno de los conceptos más importantes dentro del estudio de la inteligencia artificial.</p>
+            </section>
+
+            <section>
+                <h2 id="discusion">Discusión</h2>
+                <form id="formulario-comentario" novalidate>
+                    <label for="nombre-comentario">Nombre</label>
+                    <input type="text" id="nombre-comentario" name="nombre">
+
+                    <label for="texto-comentario">Comentario</label>
+                    <textarea id="texto-comentario" name="comentario" rows="4"></textarea>
+
+                    <p id="contador-comentario" class="contador">0 / 200</p>
+                    <button type="submit">Enviar comentario</button>
+                </form>
+                <p id="aviso-comentario" class="aviso"></p>
+                <ul id="lista-comentarios"></ul>
+            </section>
         </main>
 
         <footer>

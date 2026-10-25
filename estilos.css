@@ -6,10 +6,6 @@ body {
     padding: 20px;
 }
 
-/* 
-   Se quita el background oscuro (#272727) del contenedor 
-   para solucionar el borde blanco/rectángulo oscuro confuso.
-*/
 .contenedor {
     display: grid;
     gap: 10px;
@@ -17,14 +13,10 @@ body {
     grid-template-rows: auto 1fr auto;
     grid-template-areas:
         "header header"
-        "nav    main"
+        "aside  main"
         "footer footer";
 }
 
-/* 
-   Se aplican las reglas directamente a las etiquetas semánticas 
-   HTML5 (header, nav, main, footer) en vez de usar clases CSS.
-*/
 header {
     grid-area: header;
     background: #d6d6d6;
@@ -37,8 +29,8 @@ header {
     border-radius: 15px;
 }
 
-nav {
-    grid-area: nav;
+aside {
+    grid-area: aside;
     background: #ecd5ff;
     border: 2px solid black;
     padding: 10px;
@@ -50,7 +42,7 @@ main {
     background: #ffffff;
     border: 2px solid black;
     padding: 20px;
-    font-size: 20px;
+    font-size: 1.25rem; 
     border-radius: 15px;
 }
 
@@ -84,3 +76,121 @@ footer {
     justify-content: space-between;
     flex-direction: row;
 }
+
+.panel-apariencia {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.botones-tamano {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+aside button,
+#formulario-comentario button,
+.borrar {
+    padding: 6px 10px;
+    border: 2px solid black;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #2f2f2f;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+aside button.activo {
+    background: #106D8E;
+    border-color: #106D8E;
+    color: #ffffff;
+}
+
+
+main.texto-pequeno { font-size: 1rem; }
+main.texto-grande  { font-size: 1.5rem; }
+
+
+body.oscuro {
+    background: #14171a;
+    color: #e6e6e6;
+}
+
+body.oscuro header {
+    background: #2a2f33;
+    color: #e6e6e6;
+    border-color: #8a8f94;
+}
+
+body.oscuro aside,
+body.oscuro footer {
+    background: #2d2438;
+    border-color: #8a8f94;
+}
+
+body.oscuro main {
+    background: #1f2428;
+    border-color: #8a8f94;
+}
+
+body.oscuro main h2 { border-bottom-color: #555b61; }
+body.oscuro a { color: #9ecbff; }
+
+body.oscuro input,
+body.oscuro textarea {
+    background: #2a2f33;
+    color: #e6e6e6;
+}
+
+body.oscuro aside button:not(.activo),
+body.oscuro #formulario-comentario button,
+body.oscuro .borrar {
+    background: #2a2f33;
+    color: #e6e6e6;
+    border-color: #8a8f94;
+}
+
+
+main section h2 { cursor: pointer; }
+
+
+main section h2::before { content: "▾ "; }
+main section.plegada h2::before { content: "▸ "; }
+
+
+main section.plegada > :not(h2):not(.encabezado) { display: none; }
+main section.plegada .encabezado img { display: none; }
+
+
+#formulario-comentario label {
+    display: block;
+    margin-top: 10px;
+}
+
+#formulario-comentario input,
+#formulario-comentario textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6px;
+    font: inherit;
+    border: 1px solid #888;
+    border-radius: 6px;
+}
+
+
+#formulario-comentario input.error,
+#formulario-comentario textarea.error {
+    border: 2px solid #A23B2C;
+}
+
+.contador { font-size: 0.9rem; margin: 6px 0; }
+.contador.error { color: #A23B2C; font-weight: bold; }
+
+.aviso { color: #A23B2C; font-weight: bold; }
+body.oscuro .aviso,
+body.oscuro .contador.error { color: #ff8a7a; }
+
+#lista-comentarios { padding-left: 20px; }
+#lista-comentarios li { margin-bottom: 12px; }
+#lista-comentarios p { margin: 4px 0; overflow-wrap: anywhere; }
