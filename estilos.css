@@ -42,13 +42,13 @@ main {
     background: #ffffff;
     border: 2px solid black;
     padding: 20px;
-    font-size: 1.25rem; 
     border-radius: 15px;
 }
 
 main h2 {
     border-bottom: 1px solid #d0d0d0;
     padding-bottom: 5px;
+    cursor: pointer;
 }
 
 main img {
@@ -70,13 +70,6 @@ footer {
     border-radius: 15px;
 }
 
-.encabezado {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
-}
-
 .panel-apariencia {
     display: flex;
     flex-direction: column;
@@ -89,9 +82,7 @@ footer {
     gap: 6px;
 }
 
-aside button,
-#formulario-comentario button,
-.borrar {
+button {
     padding: 6px 10px;
     border: 2px solid black;
     border-radius: 8px;
@@ -101,15 +92,58 @@ aside button,
     font-size: 0.9rem;
 }
 
-aside button.activo {
+button.activo {
     background: #106D8E;
     border-color: #106D8E;
     color: #ffffff;
 }
 
 
-main.texto-pequeno { font-size: 1rem; }
-main.texto-grande  { font-size: 1.5rem; }
+main.texto-pequeno  { font-size: 1rem; }
+main.texto-estandar { font-size: 1.25rem; }
+main.texto-grande   { font-size: 1.5rem; }
+
+.oculto {
+    display: none;
+}
+
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input,
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6px;
+    font: inherit;
+    border: 1px solid #888;
+    border-radius: 6px;
+}
+
+.error {
+    border: 2px solid #A23B2C;
+}
+
+.contador {
+    font-size: 0.9rem;
+    margin: 6px 0;
+}
+
+.aviso {
+    color: #A23B2C;
+    font-weight: bold;
+}
+
+#lista-comentarios li {
+    margin-bottom: 12px;
+}
+
+#lista-comentarios p {
+    margin: 4px 0;
+}
 
 
 body.oscuro {
@@ -134,8 +168,13 @@ body.oscuro main {
     border-color: #8a8f94;
 }
 
-body.oscuro main h2 { border-bottom-color: #555b61; }
-body.oscuro a { color: #9ecbff; }
+body.oscuro main h2 {
+    border-bottom-color: #555b61;
+}
+
+body.oscuro a {
+    color: #9ecbff;
+}
 
 body.oscuro input,
 body.oscuro textarea {
@@ -143,54 +182,18 @@ body.oscuro textarea {
     color: #e6e6e6;
 }
 
-body.oscuro aside button:not(.activo),
-body.oscuro #formulario-comentario button,
-body.oscuro .borrar {
+body.oscuro button {
     background: #2a2f33;
     color: #e6e6e6;
     border-color: #8a8f94;
 }
 
-
-main section h2 { cursor: pointer; }
-
-
-main section h2::before { content: "▾ "; }
-main section.plegada h2::before { content: "▸ "; }
-
-
-main section.plegada > :not(h2):not(.encabezado) { display: none; }
-main section.plegada .encabezado img { display: none; }
-
-
-#formulario-comentario label {
-    display: block;
-    margin-top: 10px;
+body.oscuro button.activo {
+    background: #106D8E;
+    border-color: #106D8E;
+    color: #ffffff;
 }
 
-#formulario-comentario input,
-#formulario-comentario textarea {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 6px;
-    font: inherit;
-    border: 1px solid #888;
-    border-radius: 6px;
+body.oscuro .aviso {
+    color: #ff8a7a;
 }
-
-
-#formulario-comentario input.error,
-#formulario-comentario textarea.error {
-    border: 2px solid #A23B2C;
-}
-
-.contador { font-size: 0.9rem; margin: 6px 0; }
-.contador.error { color: #A23B2C; font-weight: bold; }
-
-.aviso { color: #A23B2C; font-weight: bold; }
-body.oscuro .aviso,
-body.oscuro .contador.error { color: #ff8a7a; }
-
-#lista-comentarios { padding-left: 20px; }
-#lista-comentarios li { margin-bottom: 12px; }
-#lista-comentarios p { margin: 4px 0; overflow-wrap: anywhere; }

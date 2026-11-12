@@ -1,44 +1,39 @@
-
 const cuerpo = document.body;
 const articulo = document.querySelector('main');
+const titulos = document.querySelectorAll('main h2');
+const secciones = document.querySelectorAll('main section');
 
-// índice automático
 const indice = document.querySelector('#indice');
-const titulosArticulo = document.querySelectorAll('main h2');
 
-// panel Apariencia
 const botonModo = document.querySelector('#boton-modo');
 const botonPequeno = document.querySelector('#boton-pequeno');
 const botonEstandar = document.querySelector('#boton-estandar');
 const botonGrande = document.querySelector('#boton-grande');
 const botonesTamano = [botonPequeno, botonEstandar, botonGrande];
 
-// discusión
-const formularioComentario = document.querySelector('#formulario-comentario');
+const formulario = document.querySelector('#formulario-comentario');
 const campoNombre = document.querySelector('#nombre-comentario');
 const campoComentario = document.querySelector('#texto-comentario');
-const contadorComentario = document.querySelector('#contador-comentario');
-const avisoComentario = document.querySelector('#aviso-comentario');
+const contador = document.querySelector('#contador-comentario');
+const aviso = document.querySelector('#aviso-comentario');
 const listaComentarios = document.querySelector('#lista-comentarios');
 
 const MINIMO = 10;
 const MAXIMO = 200;
-titulosArticulo.forEach(function (titulo) {
+
+
+titulos.forEach(function (titulo) {
     const item = document.createElement('li');
     const enlace = document.createElement('a');
-
     enlace.href = `#${titulo.id}`;
     enlace.textContent = titulo.textContent;
-
     item.append(enlace);
     indice.append(item);
 });
 
 
-
 botonModo.addEventListener('click', function () {
     cuerpo.classList.toggle('oscuro');
-
     if (cuerpo.classList.contains('oscuro')) {
         botonModo.textContent = 'Modo claro';
     } else {
@@ -46,80 +41,12 @@ botonModo.addEventListener('click', function () {
     }
 });
 
-botonPequeno.addEventListener('click', function () {
-    aplicarTamano('texto-pequeno', botonPequeno);
-});
 
-botonEstandar.addEventListener('click', function () {
-    aplicarTamano('', botonEstandar);
-});
-
-botonGrande.addEventListener('click', function () {
-    aplicarTamano('texto-grande', botonGrande);
-});
-
-articulo.addEventListener('click', function (e) {
-    const titulo = e.target.closest('h2');
-
-    if (titulo === null) {
-        return;
-    }
-
-    titulo.closest('section').classList.toggle('plegada');
-});
-
-campoComentario.addEventListener('input', function () {
-    actualizarContador();
-});
-
-formularioComentario.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    
-    avisoComentario.textContent = '';
-    campoNombre.classList.remove('error');
-    campoComentario.classList.remove('error');
-
-    const nombre = campoNombre.value.trim();
-    const comentario = campoComentario.value.trim();
-    const mensajes = [];
-
-    if (nombre === '') {
-        mensajes.push('El nombre no puede estar vacío.');
-        campoNombre.classList.add('error');
-    }
-
-    if (comentario.length < MINIMO || comentario.length > MAXIMO) {
-        mensajes.push(`El comentario debe tener entre ${MINIMO} y ${MAXIMO} caracteres.`);
-        campoComentario.classList.add('error');
-    }
-
-    if (mensajes.length > 0) {
-        avisoComentario.textContent = mensajes.join(' ');
-        return; 
-    }
-
-    crearComentario(nombre, comentario);
-
-    
-    formularioComentario.reset();
-    actualizarContador();
-});
-
-
-listaComentarios.addEventListener('click', function (e) {
-    if (e.target.classList.contains('borrar')) {
-        e.target.parentElement.remove(); 
-    }
-});
-
-
-function aplicarTamano(clase, botonElegido) {
-    articulo.classList.remove('texto-pequeno', 'texto-grande');
-
-    if (clase !== '') {
-        articulo.classList.add(clase);
-    }
+function elegirTamano(clase, botonElegido) {
+    articulo.classList.remove('texto-pequeno');
+    articulo.classList.remove('texto-estandar');
+    articulo.classList.remove('texto-grande');
+    articulo.classList.add(clase);
 
     botonesTamano.forEach(function (boton) {
         boton.classList.remove('activo');
@@ -127,17 +54,44 @@ function aplicarTamano(clase, botonElegido) {
     botonElegido.classList.add('activo');
 }
 
+botonPequeno.addEventListener('click', function () {
+    elegirTamano('texto-pequeno', botonPequeno);
+});
+
+botonEstandar.addEventListener('click', function () {
+    elegirTamano('texto-estandar', botonEstandar);
+});
+
+botonGrande.addEventListener('click', function () {
+    elegirTamano('texto-grande', botonGrande);
+});
+
+secciones.forEach(function (seccion) {
+    const titulo = seccion.querySelector('h2');
+    const contenido = seccion.querySelector('.contenido');
+
+    
+    const flecha = document.createElement('span');
+    flecha.textContent = '▾ ';
+    titulo.prepend(flecha);
+
+    titulo.addEventListener('click', function () {
+        contenido.classList.toggle('oculto');
+        if (contenido.classList.contains('oculto')) {
+            flecha.textContent = '▸ ';
+        } else {
+            flecha.textContent = '▾ ';
+        }
+    });
+});
+
+
 function actualizarContador() {
     const usados = campoComentario.value.length;
-
-    contadorComentario.textContent = `${usados} / ${MAXIMO}`;
-
-    if (usados > MAXIMO) {
-        contadorComentario.classList.add('error');
-    } else {
-        contadorComentario.classList.remove('error');
-    }
+    contador.textContent = `${usados} / ${MAXIMO}`;
 }
+
+campoComentario.addEventListener('input', actualizarContador);
 
 function crearComentario(nombre, texto) {
     const item = document.createElement('li');
@@ -149,7 +103,6 @@ function crearComentario(nombre, texto) {
     contenido.textContent = texto;
 
     const borrar = document.createElement('button');
-    borrar.type = 'button';
     borrar.textContent = 'Borrar';
     borrar.classList.add('borrar');
 
@@ -158,3 +111,36 @@ function crearComentario(nombre, texto) {
     item.append(borrar);
     listaComentarios.append(item);
 }
+
+formulario.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    aviso.textContent = '';
+    campoNombre.classList.remove('error');
+    campoComentario.classList.remove('error');
+
+    const nombre = campoNombre.value.trim();
+    const comentario = campoComentario.value.trim();
+
+    if (nombre === '') {
+        aviso.textContent = 'El nombre no puede estar vacío';
+        campoNombre.classList.add('error');
+        return;
+    }
+
+    if (comentario.length < MINIMO || comentario.length > MAXIMO) {
+        aviso.textContent = `El comentario tiene que tener entre ${MINIMO} y ${MAXIMO} caracteres`;
+        campoComentario.classList.add('error');
+        return;
+    }
+
+    crearComentario(nombre, comentario);
+    formulario.reset();
+    actualizarContador();
+});
+
+listaComentarios.addEventListener('click', function (e) {
+    if (e.target.classList.contains('borrar')) {
+        e.target.parentElement.remove();
+    }
+});
